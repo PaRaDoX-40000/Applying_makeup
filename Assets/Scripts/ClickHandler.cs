@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -12,6 +13,12 @@ public class ClickHandler : MonoBehaviour
     }
     public void OnClick(InputAction.CallbackContext context)
     {
+        StartCoroutine(OnClickCorunine(context));
+    }
+
+    private IEnumerator OnClickCorunine(InputAction.CallbackContext context)
+    {
+        yield return null;
         if (context.started)
         {
             Vector3 worldPos = Camera.main.ScreenToWorldPoint(_screenPos);
